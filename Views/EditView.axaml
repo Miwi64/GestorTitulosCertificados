@@ -1,0 +1,69 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="ProtoApp.Views.EditView">
+	<UserControl.Styles>
+		<Style Selector="Label">
+			<Setter Property="FontFamily" Value="Segoe UI"/>
+			<Setter Property="FontWeight" Value="Thin"/>
+		</Style>
+		<Style Selector="ComboBox">
+			<Setter Property="CornerRadius" Value="0"/>
+			<Setter Property="Height" Value="30"/>
+			<Setter Property="Width" Value="150"/>
+		</Style>
+		<Style Selector="ToggleButton">
+			<Setter Property="CornerRadius" Value="0"/>
+			<Setter Property="Background" Value="Transparent"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="BorderBrush" Value="Gray"/>
+		</Style>
+		<Style Selector="ToggleButton:pointerover /template/ ContentPresenter">
+			<Setter Property="CornerRadius" Value="0"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="BorderBrush" Value="DarkGray"/>
+		</Style>
+	</UserControl.Styles>
+
+	<StackPanel Spacing="10">
+			<Label Content="Editar"
+			   FontWeight="Bold"
+			   FontSize="30"
+			   />
+			<StackPanel Margin="10">
+				<WrapPanel>
+					<ComboBox Width="110" Height="32" HorizontalContentAlignment="Left">
+						<ComboBoxItem>
+							<Label Content="No. Control"/>
+						</ComboBoxItem>
+						<ComboBoxItem>
+							<Label Content="No. Registro"/>
+						</ComboBoxItem>
+						<ComboBoxItem>
+							<Label Content="Apellido Paterno"/>
+						</ComboBoxItem>
+						<ComboBoxItem>
+							<Label Content="Apellido Materno"/>
+						</ComboBoxItem>
+						<ComboBoxItem>
+							<Label Content="Nombre"/>
+						</ComboBoxItem>
+					</ComboBox>
+					<TextBox Watermark="Buscar..." Width="510" CornerRadius="0"/>
+					<Button Background="DodgerBlue" CornerRadius="0">
+						<Image Source="/Assets/searchIconD.png" Width="19"/>
+					</Button>
+					<Button Background="Transparent" CornerRadius="0">
+						<Image Source="/Assets/RestartIconD.png" Width="19"/>
+					</Button>
+				</WrapPanel>
+		</StackPanel>
+		<ScrollViewer>
+			<Grid>
+			</Grid>
+		</ScrollViewer>
+		<ProgressBar IsIndeterminate="True"/>
+	</StackPanel>
+</UserControl>

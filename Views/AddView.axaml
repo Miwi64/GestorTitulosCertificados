@@ -1,0 +1,65 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="ProtoApp.Views.AddView">
+	<UserControl.Styles>
+		<Style Selector = "Button">
+			<Setter Property = "Foreground" Value = "#FFFFFFFF" />
+			<Setter Property="FontFamily" Value="Segoe UI" />
+			<Setter Property="FontWeight" Value="Thin" />
+			<Setter Property="FontSize" Value="18" />
+			<Setter Property="Width" Value="170" />
+			<Setter Property="Padding" Value="5" />
+			<Setter Property="HorizontalContentAlignment" Value="Center" />
+		</Style>
+		<Style Selector= "TextBox">
+			<Setter Property = "Foreground" Value = "#FFFFFFFF" />
+			<Setter Property="FontFamily" Value="Segoe UI" />
+			<Setter Property="FontWeight" Value="Thin" />
+			<Setter Property="FontSize" Value="16" />
+		</Style>
+	</UserControl.Styles>
+	<WrapPanel Orientation="Vertical">
+			<Label Content="Añadir"
+			   FontFamily="Segoe UI"
+			   FontWeight="Bold"
+			   FontSize="30"
+			   />
+			<TabControl MaxHeight="300" Padding="10">
+				<TabItem Header="Certificado" VerticalContentAlignment="Center">
+					<ScrollViewer>
+						<StackPanel HorizontalAlignment="Stretch" Margin="0 0 20 0"  Spacing="10">
+							<TextBox Watermark="No. Registro..."/>
+							<TextBox Watermark="No. Folio..."/>
+							<TextBox Watermark="No. Control..."/>
+							<TextBox Watermark="Nombre..."/>
+							<TextBox Watermark="Carrera..."/>
+							<TextBox Watermark="Fecha de registro..."/>
+							<TextBox Watermark="Observaciones..."/>
+						</StackPanel>
+					</ScrollViewer>
+				</TabItem>
+				<TabItem Header="Titulo" VerticalContentAlignment="Center">
+					<ScrollViewer>
+						<StackPanel HorizontalAlignment="Stretch" Margin="0 0 20 0" Spacing="10">
+							<TextBox Watermark="No. Registro..."/>
+							<TextBox Watermark="No. Titulo de licenciatura..."/>
+							<TextBox Watermark="No. Control..."/>
+							<TextBox Watermark="Clave Plan de estudios..."/>
+							<TextBox Watermark="Fecha del acto..."/>
+							<TextBox Watermark="Fecha de registro..."/>
+							<TextBox Watermark="No. Cedula..."/>
+							<TextBox Watermark="Observaciones"/>
+						</StackPanel>
+					</ScrollViewer>
+				</TabItem>
+			</TabControl>
+		<WrapPanel Margin="10">
+			<Button Content="Agregar"/>
+			<Button Content="Importar Excel"/>
+			<Button Content="Cancelar"/>
+		</WrapPanel>
+	</WrapPanel>
+</UserControl>

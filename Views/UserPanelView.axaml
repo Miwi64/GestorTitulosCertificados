@@ -1,0 +1,56 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:ProtoApp"
+			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="ProtoApp.Views.UserPanelView">
+	<StackPanel Spacing="10">
+		<Label Content="Panel Principal"
+			   FontFamily="Segoe UI"
+					   FontWeight="Bold"
+					   FontSize="30"/>
+		<Grid RowDefinitions="auto,auto" ColumnDefinitions="auto,auto">
+			<Button Command="{Binding $parent[Window].DataContext.OpenReadCommand}" Grid.Row="0" Opacity="0.8" Grid.Column="0" Margin="8" Width="300" Height="140">
+				<StackPanel Spacing="5" VerticalAlignment="Center" HorizontalAlignment="Center">
+					<Image Source="/Assets/viewIconD.png" Width="95"/>
+					<Label Content="Consultar"
+						   HorizontalContentAlignment="Center"
+						   FontSize="22"
+						   FontFamily="Segoe UI"
+						   />
+				</StackPanel>
+			</Button>
+			<Button Command="{Binding $parent[Window].DataContext.OpenEditCommand}" Grid.Row="0" Opacity="0.8" Grid.Column="1" Margin="8" Width="300" Height="140">
+				<StackPanel Spacing="5" VerticalAlignment="Center" HorizontalAlignment="Center">
+					<Image Source="/Assets/editIconD.png" Width="80"/>
+					<Label Content="Editar"
+						   HorizontalContentAlignment="Center"
+						   FontSize="22"
+						   FontFamily="Segoe UI"
+						   />
+				</StackPanel>
+			</Button>
+			<Button Command="{Binding $parent[Window].DataContext.OpenAddCommand}" Grid.Row="1" Opacity="0.8" Grid.Column="0" Margin="8" Width="300" Height="140">
+				<StackPanel Spacing="5" VerticalAlignment="Center" HorizontalAlignment="Center">
+					<Image Source="/Assets/addIconD.png" Width="80"/>
+					<Label Content="Añadir"
+						   HorizontalContentAlignment="Center"
+						   FontSize="22"
+						   FontFamily="Segoe UI"
+						   />
+				</StackPanel>
+			</Button>
+			<Button Command="{Binding $parent[Window].DataContext.OpenManagementCommand}" Grid.Row="1" Opacity="0.8" Grid.Column="1" Margin="8" Width="300" Height="140">
+				<StackPanel Spacing="5" VerticalAlignment="Center" HorizontalAlignment="Center">
+					<Image Source="/Assets/AccountIconD.png" Width="80"/>
+					<Label Content="Usuarios"
+						   HorizontalContentAlignment="Center"
+						   FontSize="22"
+						   FontFamily="Segoe UI"
+						   />
+				</StackPanel>
+			</Button>
+		</Grid>
+	</StackPanel>
+</UserControl>

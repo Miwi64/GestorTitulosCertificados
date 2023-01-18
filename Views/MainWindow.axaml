@@ -1,0 +1,71 @@
+<Window xmlns="https://github.com/avaloniaui"
+        x:Name="login"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:ProtoApp.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="480"
+        Width="400"
+		Height="480"
+		x:Class="ProtoApp.Views.MainWindow"
+        Icon="/Assets/appIcon.ico"
+        Title="Inicio de sesion"
+		TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent"
+		ExtendClientAreaToDecorationsHint="True"
+		>
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+
+	<Window.Styles>
+		<Style Selector = "Button">
+			<Setter Property = "Foreground" Value = "#FFFFFFFF" />
+			<Setter Property="FontFamily" Value="Segoe UI" />
+			<Setter Property="FontWeight" Value="Thin" />
+			<Setter Property="FontSize" Value="18" />
+			<Setter Property="Width" Value="150" />
+			<Setter Property="Padding" Value="5" />
+			<Setter Property="HorizontalContentAlignment" Value="Center" />
+		</Style>
+		<Style Selector= "TextBox">
+			<Setter Property = "Foreground" Value = "#FFFFFFFF" />
+			<Setter Property="FontFamily" Value="Segoe UI" />
+			<Setter Property="FontWeight" Value="Thin" />
+			<Setter Property="FontSize" Value="18" />
+		</Style>
+	</Window.Styles>
+
+	<Panel>
+		<ExperimentalAcrylicBorder IsHitTestVisible="False">
+			<ExperimentalAcrylicBorder.Material>
+				<ExperimentalAcrylicMaterial
+					BackgroundSource="Digger"
+					TintColor="Black"
+					TintOpacity="1"
+					MaterialOpacity="0.65" />
+			</ExperimentalAcrylicBorder.Material>
+		</ExperimentalAcrylicBorder>
+
+		<DockPanel Margin="30">
+			<StackPanel DockPanel.Dock="Top" Spacing="25">
+				<Label Content="Iniciar sesión"
+					   FontFamily="Segoe UI"
+					   FontWeight="Bold"
+					   FontSize="30"/>
+				<Panel>
+					<Ellipse Opacity="0.8" Fill="Gray" Width="130" Height="130"/>
+					<Image Source="/Assets/userIconD.png" Width="100"/>
+				</Panel>
+				<StackPanel Spacing="10" Margin="20 0 20 0" MaxWidth="400">
+					<TextBox Watermark="Nombre de usuario..."/>
+					<TextBox Watermark="Contraseña..." PasswordChar="*"/>
+					<CheckBox Content="Administrador"/>
+				</StackPanel>
+			</StackPanel>
+			<Button DockPanel.Dock="Bottom"  Command="{Binding OpenPanelCommand}" Content="Aceptar" HorizontalAlignment="Center" />
+		</DockPanel>
+	</Panel>
+</Window>
