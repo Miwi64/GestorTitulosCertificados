@@ -1,4 +1,7 @@
 using Avalonia.Controls;
+using ProtoApp.ViewModels;
+using Avalonia.ReactiveUI;
+using System;
 
 namespace ProtoApp.Views
 {

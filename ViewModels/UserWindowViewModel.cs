@@ -1,20 +1,25 @@
 ﻿using ReactiveUI;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Reactive;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace ProtoApp.ViewModels
 {
-    internal class UserWindowViewModel : ViewModelBase
+    public class UserWindowViewModel : ViewModelBase
     {
         private ViewModelBase _currentView;
         private bool _visibleBack;
+        private readonly IWindowService _windowservice;
 
-        public UserWindowViewModel()
+        public UserWindowViewModel(IWindowService windowservice)
         {
+            _windowservice = windowservice;
+            OpenAboutWindowCommand = ReactiveCommand.Create(OpenAboutWindow);
             _visibleBack = false;
             _currentView = new UserPanelViewModel();
             OpenAddCommand = ReactiveCommand.Create(OpenAdd);
@@ -22,8 +27,13 @@ namespace ProtoApp.ViewModels
             OpenReadCommand = ReactiveCommand.Create(OpenRead);
             OpenManagementCommand = ReactiveCommand.Create(OpenManagement);
             BackButtonCommand = ReactiveCommand.Create(BackButton);
-        }
 
+        }
+        public void OpenAboutWindow()
+        {
+            _windowservice.CreateAboutWindow();
+        }
+        public ReactiveCommand<Unit, Unit> OpenAboutWindowCommand { get ;}
         public ViewModelBase CurrentView
         {
             get => _currentView;

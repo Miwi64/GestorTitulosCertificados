@@ -1,0 +1,84 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="450"
+        Width="400"
+		Height="450"
+		x:Class="ProtoApp.Views.AboutWindow"
+        Title="Acerca de"
+		TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent"
+		Icon="/Assets/appIcon.ico"
+		ExtendClientAreaToDecorationsHint="True"
+		>
+	<Panel>
+			<ExperimentalAcrylicBorder IsHitTestVisible="False">
+				<ExperimentalAcrylicBorder.Material>
+					<ExperimentalAcrylicMaterial
+						BackgroundSource="Digger"
+						TintColor="Black"
+						TintOpacity="1"
+						MaterialOpacity="0.75" />
+				</ExperimentalAcrylicBorder.Material>
+			</ExperimentalAcrylicBorder>
+			<DockPanel Margin="40" >
+				<StackPanel DockPanel.Dock="Top">
+					<Label
+					Content="Acerca de"
+				   FontFamily="Segoe UI"
+				   FontWeight="Bold"
+				   FontSize="30"
+			   />
+					<WrapPanel Orientation="Vertical">
+						<Label Content="Versión"
+							FontFamily="Segoe UI"
+							FontWeight="Thin"
+							FontSize="20"
+				/>
+						<Label
+							Content="0.1"
+							FontFamily="Segoe UI"
+							FontWeight="SemiBold"
+							FontSize="18"
+					/>
+						<Label
+							Content="20/01/2023"
+							FontFamily="Segoe UI"
+							FontWeight="SemiBold"
+							FontSize="18"
+					/>
+					</WrapPanel>
+					<WrapPanel Orientation="Vertical">
+						<Label Content="Colaboradores"
+							FontFamily="Segoe UI"
+							FontWeight="Thin"
+							FontSize="20"
+				/>
+						<Label
+							Content="Miguel Argote Reyes"
+							FontFamily="Segoe UI"
+							FontWeight="SemiBold"
+							FontSize="20"
+					/>
+						<Label
+							Content="Eugenio Verdugo Osorio"
+							FontFamily="Segoe UI"
+							FontWeight="SemiBold"
+							FontSize="20"
+					/>
+					</WrapPanel>
+				</StackPanel>
+				<StackPanel Margin="40" DockPanel.Dock="Bottom" HorizontalAlignment="Center">
+					<Button
+						Content="Aceptar"
+						Command="{Binding CloseWindowCommand}"
+						FontFamily="Segoe UI"
+						FontWeight="Thin"
+						FontSize="18"
+						HorizontalContentAlignment="Center"
+						Width="120"/>
+				</StackPanel>
+			</DockPanel>
+	</Panel>
+</Window>

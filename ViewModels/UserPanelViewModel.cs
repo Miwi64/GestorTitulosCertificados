@@ -7,12 +7,11 @@ using System.Linq;
 using System.Reactive;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace ProtoApp.ViewModels
 {
-    internal class UserPanelViewModel : ViewModelBase
-    {
-        public UserPanelViewModel() {
-        }
+    public class UserPanelViewModel : ViewModelBase
+    { 
     }
 }

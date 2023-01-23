@@ -10,7 +10,9 @@
         Title="Sistema de certificados y titulos"
 		TransparencyLevelHint="AcrylicBlur"
         Background="Transparent"
-		ExtendClientAreaToDecorationsHint="True">
+		Icon="/Assets/appIcon.ico"
+		ExtendClientAreaToDecorationsHint="True"
+		>
 	<Panel>
 		<ExperimentalAcrylicBorder IsHitTestVisible="False">
 			<ExperimentalAcrylicBorder.Material>
@@ -18,7 +20,7 @@
 					BackgroundSource="Digger"
 					TintColor="Black"
 					TintOpacity="1"
-					MaterialOpacity="0.65" />
+					MaterialOpacity="0.75" />
 			</ExperimentalAcrylicBorder.Material>
 		</ExperimentalAcrylicBorder>
 		<StackPanel>

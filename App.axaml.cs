@@ -17,9 +17,18 @@ namespace ProtoApp
         {
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
-                desktop.MainWindow = new MainWindow
+                var vm = new MainWindowViewModel();
+                var mainWindow = new MainWindow { DataContext = vm };
+                desktop.MainWindow = mainWindow;
+                vm.OnRequestClose += (s, e) =>
                 {
-                    DataContext = new MainWindowViewModel(),
+                    var userWindow = new UserWindow() { DataContext = new UserWindowViewModel(new WindowService())};
+                    userWindow.Closed += (s, e) =>
+                    {
+                        mainWindow.Show();
+                    };
+                    userWindow.Show();
+                    mainWindow.Hide();
                 };
             }
 

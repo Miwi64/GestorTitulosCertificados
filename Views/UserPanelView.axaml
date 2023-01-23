@@ -52,5 +52,16 @@
 				</StackPanel>
 			</Button>
 		</Grid>
+		<Button
+			Command="{Binding $parent[Window].DataContext.OpenAboutWindowCommand}"
+			Background="Transparent"
+			FontSize="18"
+			Foreground="DarkGray"
+			>
+			<StackPanel Orientation="Horizontal">
+				<Image Source="/Assets/infoIcon.png" Width="25"/>
+				<Label Content="Acerca de"/>
+			</StackPanel>
+		</Button>
 	</StackPanel>
 </UserControl>
