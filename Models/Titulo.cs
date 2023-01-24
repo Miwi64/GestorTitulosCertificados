@@ -5,25 +5,21 @@ namespace ProtoApp.Models;
 
 public partial class Titulo
 {
-    public int NoRegistro { get; set; }
+    public int IdTitulo { get; set; }
 
-    public int NoTitulo { get; set; }
+    public int Registro { get; set; }
 
-    public string NoControl { get; set; } = null!;
+    public int TituloLicenciatura { get; set; }
 
-    public string Nombres { get; set; } = null!;
+    public string? NumeroControl { get; set; }
 
-    public string? ApPaterno { get; set; }
+    public int? ClavePlanEstudios { get; set; }
 
-    public string? ApMaterno { get; set; }
+    public DateTime? FechaActo { get; set; }
 
-    public string ClavePlanDeEstudios { get; set; } = null!;
+    public DateTime? FechaRegistro { get; set; }
 
-    public DateTime FechaActo { get; set; }
-
-    public DateTime FechaRegistro { get; set; }
-
-    public int? NoCedula { get; set; }
+    public int? Cedula { get; set; }
 
     public string? Observaciones { get; set; }
 }

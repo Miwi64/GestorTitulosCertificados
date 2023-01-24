@@ -5,21 +5,23 @@ namespace ProtoApp.Models;
 
 public partial class Certificado
 {
-    public int NoReg { get; set; }
+    public int IdCertificado { get; set; }
 
-    public int NoFolio { get; set; }
+    public int RegistroCertificado { get; set; }
 
-    public string NoControl { get; set; } = null!;
+    public int Folio { get; set; }
 
-    public string Nombres { get; set; } = null!;
+    public string? NumeroControl { get; set; }
 
-    public string? ApPaterno { get; set; }
+    public string? Nombre { get; set; }
 
-    public string? ApMaterno { get; set; }
+    public string? ApellidoPaterno { get; set; }
 
-    public string NombreCarrera { get; set; } = null!;
+    public string? ApellidoMaterno { get; set; }
 
-    public DateTime FechaRegistro { get; set; }
+    public string? Carrera { get; set; }
+
+    public DateTime? FechaRegCert { get; set; }
 
     public string? Observaciones { get; set; }
 }

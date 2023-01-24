@@ -27,37 +27,39 @@
 			   FontWeight="Bold"
 			   FontSize="30"
 			   />
-			<TabControl MaxHeight="300" Padding="10">
+			<TabControl Name="tcData" MaxHeight="300" Padding="10">
 				<TabItem Header="Certificado" VerticalContentAlignment="Center">
 					<ScrollViewer>
 						<StackPanel HorizontalAlignment="Stretch" Margin="0 0 20 0"  Spacing="10">
-							<TextBox Watermark="No. Registro..."/>
-							<TextBox Watermark="No. Folio..."/>
-							<TextBox Watermark="No. Control..."/>
-							<TextBox Watermark="Nombre..."/>
-							<TextBox Watermark="Carrera..."/>
-							<TextBox Watermark="Fecha de registro..."/>
-							<TextBox Watermark="Observaciones..."/>
+							<TextBox Name="regC" Watermark="No. Registro..."/>
+							<TextBox Name="folC" Watermark="No. Folio..."/>
+							<TextBox Name="contC" Watermark="No. Control..."/>
+							<TextBox Name="nomC" Watermark="Nombre..."/>
+							<TextBox Name="apC" Watermark="Apellido Paterno..."/>
+							<TextBox Name="amC" Watermark="Apellido Materno..."/>
+							<TextBox Name="carrC" Watermark="Carrera..."/>
+							<TextBox Name="fecrC" Watermark="Fecha de registro..."/>
+							<TextBox Name="obsC" Watermark="Observaciones..."/>
 						</StackPanel>
 					</ScrollViewer>
 				</TabItem>
 				<TabItem Header="Titulo" VerticalContentAlignment="Center">
 					<ScrollViewer>
 						<StackPanel HorizontalAlignment="Stretch" Margin="0 0 20 0" Spacing="10">
-							<TextBox Watermark="No. Registro..."/>
-							<TextBox Watermark="No. Titulo de licenciatura..."/>
-							<TextBox Watermark="No. Control..."/>
-							<TextBox Watermark="Clave Plan de estudios..."/>
-							<TextBox Watermark="Fecha del acto..."/>
-							<TextBox Watermark="Fecha de registro..."/>
-							<TextBox Watermark="No. Cedula..."/>
-							<TextBox Watermark="Observaciones"/>
+							<TextBox Name="regT" Watermark="No. Registro..."/>
+							<TextBox Name="titlT" Watermark="No. Titulo de licenciatura..."/>
+							<TextBox Name="contT" Watermark="No. Control..."/>
+							<TextBox Name="planT" Watermark="Clave Plan de estudios..."/>
+							<TextBox Name="fecaT" Watermark="Fecha del acto..."/>
+							<TextBox Name="fecrT" Watermark="Fecha de registro..."/>
+							<TextBox Name="cedT" Watermark="No. Cedula..."/>
+							<TextBox Name="obsT" Watermark="Observaciones"/>
 						</StackPanel>
 					</ScrollViewer>
 				</TabItem>
 			</TabControl>
 		<WrapPanel Margin="10">
-			<Button Content="Agregar"/>
+			<Button Content="Agregar" Command="{Binding AddDataCommand}"/>
 			<Button Content="Importar Excel"/>
 			<Button Content="Cancelar"/>
 		</WrapPanel>

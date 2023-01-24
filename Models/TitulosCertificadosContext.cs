@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ProtoApp.Models;
 
-public partial class TyCContext : DbContext
+public partial class TitulosCertificadosContext : DbContext
 {
-    public TyCContext()
+    public TitulosCertificadosContext()
     {
     }
 
-    public TyCContext(DbContextOptions<TyCContext> options)
+    public TitulosCertificadosContext(DbContextOptions<TitulosCertificadosContext> options)
         : base(options)
     {
     }
@@ -21,38 +21,34 @@ public partial class TyCContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=LORE; Database=TyC;Trusted_Connection=True;TrustServerCertificate=yes");
+        => optionsBuilder.UseSqlServer("Server=MIHAYA\\SERVIDOR; User ID=sa; Password=SP105rf; Database=TitulosCertificados;Trusted_Connection=False;TrustServerCertificate=yes");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Certificado>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("Certificado");
+            entity.HasKey(e => e.IdCertificado);
 
-            entity.Property(e => e.ApMaterno).HasMaxLength(50);
-            entity.Property(e => e.ApPaterno).HasMaxLength(50);
-            entity.Property(e => e.FechaRegistro).HasColumnType("date");
-            entity.Property(e => e.NoControl).HasMaxLength(10);
-            entity.Property(e => e.NombreCarrera).HasMaxLength(50);
-            entity.Property(e => e.Nombres).HasMaxLength(50);
+            entity.ToTable("Certificado");
+
+            entity.Property(e => e.ApellidoMaterno).HasMaxLength(30);
+            entity.Property(e => e.ApellidoPaterno).HasMaxLength(30);
+            entity.Property(e => e.Carrera).HasMaxLength(50);
+            entity.Property(e => e.FechaRegCert).HasColumnType("date");
+            entity.Property(e => e.Nombre).HasMaxLength(30);
+            entity.Property(e => e.NumeroControl).HasMaxLength(10);
             entity.Property(e => e.Observaciones).HasMaxLength(50);
         });
 
         modelBuilder.Entity<Titulo>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("Titulo");
+            entity.HasKey(e => e.IdTitulo);
 
-            entity.Property(e => e.ApMaterno).HasMaxLength(30);
-            entity.Property(e => e.ApPaterno).HasMaxLength(30);
-            entity.Property(e => e.ClavePlanDeEstudios).HasMaxLength(15);
+            entity.ToTable("Titulo");
+
             entity.Property(e => e.FechaActo).HasColumnType("date");
             entity.Property(e => e.FechaRegistro).HasColumnType("date");
-            entity.Property(e => e.NoControl).HasMaxLength(10);
-            entity.Property(e => e.Nombres).HasMaxLength(50);
+            entity.Property(e => e.NumeroControl).HasMaxLength(10);
             entity.Property(e => e.Observaciones).HasMaxLength(50);
         });
 
