@@ -47,7 +47,7 @@
 				<TabItem Header="Titulo" VerticalContentAlignment="Center">
 					<ScrollViewer>
 						<StackPanel HorizontalAlignment="Stretch" Margin="0 0 20 0" Spacing="10">
-							<TextBox Watermark="No. Registro..." Text="{Binding Registert}"/>
+							<TextBox UseFloatingWatermark="True" Watermark="No. Registro..." Text="{Binding Registert}"/>
 							<TextBox Watermark="No. Titulo de licenciatura..." Text="{Binding Titlet}"/>
 							<TextBox Watermark="No. Control..." Text="{Binding Controlt}"/>
 							<TextBox Watermark="Clave Plan de estudios..." Text="{Binding Plan}"/>

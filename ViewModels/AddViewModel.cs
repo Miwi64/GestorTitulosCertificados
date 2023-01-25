@@ -2,6 +2,7 @@
 using ProtoApp.Models;
 using ReactiveUI;
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.Reactive;
 
 namespace ProtoApp.ViewModels
@@ -15,21 +16,33 @@ namespace ProtoApp.ViewModels
         public ReactiveCommand<int, Unit> AddDataCommand { get; }
         public void AddData(int index)
         {
-            if (index == 0) DBcrud.AddCertificado(Registerc, Folc, Controlc);
-            if (index == 1) DBcrud.AddTitulo(Registert, Titlet, Controlt);
+            if (index == 0)
+            {
+                int noreg = int.Parse(Registerc);
+                int folio = int.Parse(Folc);
+                DBcrud.AddCertificado(noreg, folio, Careerc, Controlc);
+            }
+            else 
+            {
+                int noreg = int.Parse(Registert);
+                DBcrud.AddTitulo(noreg, Titlet, Controlt, Plan); 
+            }
         }
 
-        public int Registerc
+        [Required]
+        public string Registerc
         {
             get => _registerc;
             set => this.RaiseAndSetIfChanged(ref _registerc, value);
         }
+        [Required]
         public string Controlc
         {
             get => _controlc;
             set => this.RaiseAndSetIfChanged(ref _controlc, value);
         }
-        public int Folc
+        [Required]
+        public string Folc
         {
             get => _folc;
             set => this.RaiseAndSetIfChanged(ref _folc, value);
@@ -49,6 +62,8 @@ namespace ProtoApp.ViewModels
             get => _last2;
             set => this.RaiseAndSetIfChanged(ref _last2, value);
         }
+
+        [Required]
         public string Careerc
         {
             get => _careerc;
@@ -64,9 +79,9 @@ namespace ProtoApp.ViewModels
             get => _obsc;
             set => this.RaiseAndSetIfChanged(ref _obsc, value);
         }
-        int _registerc;
+        string _registerc;
         string _controlc;
-        int _folc;
+        string _folc;
         string _namec;
         string _last1;
         string _last2;
@@ -74,22 +89,25 @@ namespace ProtoApp.ViewModels
         string _datec;
         string _obsc;
 
-
-        public int Registert
+        [Required]
+        public string Registert
         {
             get => _registert;
             set => this.RaiseAndSetIfChanged(ref _registert, value);
         }
-        public int Titlet
+        [Required]
+        public string Titlet
         {
             get => _titlet;
             set => this.RaiseAndSetIfChanged(ref _titlet, value);
         }
+        [Required]
         public string Controlt
         {
             get => _controlt;
             set => this.RaiseAndSetIfChanged(ref _controlt, value);
         }
+        [Required]
         public string Plan
         {
             get => _plan;
@@ -116,9 +134,9 @@ namespace ProtoApp.ViewModels
             set => this.RaiseAndSetIfChanged(ref _obst, value);
         }
 
-        int _registert;
+        string _registert;
         string _controlt;
-        int _titlet;
+        string _titlet;
         string _plan;
         string _dateta;
         string _datetr;

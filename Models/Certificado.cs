@@ -19,7 +19,7 @@ public partial class Certificado
 
     public string? ApellidoMaterno { get; set; }
 
-    public string? Carrera { get; set; }
+    public string Carrera { get; set; } = null!;
 
     public DateTime? FechaRegCert { get; set; }
 

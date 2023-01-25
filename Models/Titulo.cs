@@ -9,17 +9,17 @@ public partial class Titulo
 
     public int Registro { get; set; }
 
-    public int TituloLicenciatura { get; set; }
+    public string TituloLicenciatura { get; set; } = null!;
 
-    public string? NumeroControl { get; set; }
+    public string NumeroControl { get; set; } = null!;
 
-    public int? ClavePlanEstudios { get; set; }
+    public string ClavePlanEstudios { get; set; } = null!;
 
-    public DateTime? FechaActo { get; set; }
+    public DateTime FechaActo { get; set; }
 
     public DateTime? FechaRegistro { get; set; }
 
-    public int? Cedula { get; set; }
+    public long? Cedula { get; set; }
 
     public string? Observaciones { get; set; }
 }

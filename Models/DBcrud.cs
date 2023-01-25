@@ -8,21 +8,21 @@ namespace ProtoApp.Models
 {
     public class DBcrud
     {
-        public static void AddCertificado(int reg, int folio, string control, string nombre = "", string apat = "", 
-              string amat="", string carrera="", DateTime fecha = new DateTime(), string obs="") 
+        public static void AddCertificado(int reg, int folio, string carrera, string control ="", string nombre = "", string apat = "", 
+              string amat="", DateTime fecha = new DateTime(), string obs="") 
         {
             using (var context = new TitulosCertificadosContext())
             {
-                var cert = new Certificado() { RegistroCertificado = reg, Folio = folio, NumeroControl = control };
+                var cert = new Certificado() { RegistroCertificado = reg, Folio = folio, NumeroControl = control, Carrera = carrera};
                 context.Certificados.Add(cert);
                 context.SaveChanges();
             }
         }
-        public static void AddTitulo(int reg, int titulo, string control, int clave = 0,  DateTime fa = new DateTime(), DateTime fr = new DateTime(),  int ced = 0, string obs = "")
+        public static void AddTitulo(int reg, string titulo, string control, string clave,  DateTime fa = new DateTime(), DateTime fr = new DateTime(),  long ced = 0, string obs = "")
         {
             using (var context = new TitulosCertificadosContext())
             {
-                var titl = new Titulo() { Registro=reg, TituloLicenciatura=titulo, NumeroControl=control};
+                var titl = new Titulo() { Registro=reg, TituloLicenciatura=titulo, NumeroControl=control, ClavePlanEstudios = clave};
                 context.Titulos.Add(titl);
                 context.SaveChanges();
             }
@@ -50,7 +50,7 @@ namespace ProtoApp.Models
                 }
             }
         }
-        public static void EditCertificado(int id, int reg, int folio, string control, int clave, string nombre, string apat,
+        public static void EditCertificado(int id, int reg, int folio, string control, string nombre, string apat,
               string amat, string carrera, DateTime fecha, string obs)
         {
             using (var context = new TitulosCertificadosContext())
@@ -72,7 +72,7 @@ namespace ProtoApp.Models
                 }
             }
         }
-        public static void EditTitulo(int id, int reg, int titulo, string control, DateTime fa, DateTime fr, int ced, string obs)
+        public static void EditTitulo(int id, int reg, string titulo, string control, string clave, DateTime fa, DateTime fr, long ced, string obs)
         {
             using (var context = new TitulosCertificadosContext())
             {
@@ -82,6 +82,7 @@ namespace ProtoApp.Models
                     titl.Registro = reg;
                     titl.TituloLicenciatura = titulo;
                     titl.NumeroControl = control;
+                    titl.ClavePlanEstudios = clave;
                     titl.FechaActo = fa;
                     titl.FechaRegistro = fr;
                     titl.Cedula = ced;
