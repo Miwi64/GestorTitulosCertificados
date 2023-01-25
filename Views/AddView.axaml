@@ -2,7 +2,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="ProtoApp.Views.AddView">
 	<UserControl.Styles>
 		<Style Selector = "Button">
@@ -27,41 +28,40 @@
 			   FontWeight="Bold"
 			   FontSize="30"
 			   />
-			<TabControl Name="tcData" MaxHeight="300" Padding="10">
+			<TabControl Width="600" Name="tabcontrol" MaxHeight="300" Padding="10">
 				<TabItem Header="Certificado" VerticalContentAlignment="Center">
 					<ScrollViewer>
 						<StackPanel HorizontalAlignment="Stretch" Margin="0 0 20 0"  Spacing="10">
-							<TextBox Name="regC" Watermark="No. Registro..."/>
-							<TextBox Name="folC" Watermark="No. Folio..."/>
-							<TextBox Name="contC" Watermark="No. Control..."/>
-							<TextBox Name="nomC" Watermark="Nombre..."/>
-							<TextBox Name="apC" Watermark="Apellido Paterno..."/>
-							<TextBox Name="amC" Watermark="Apellido Materno..."/>
-							<TextBox Name="carrC" Watermark="Carrera..."/>
-							<TextBox Name="fecrC" Watermark="Fecha de registro..."/>
-							<TextBox Name="obsC" Watermark="Observaciones..."/>
+							<TextBox Name="regC" Watermark="No. Registro..." Text="{Binding Registerc}"/>
+							<TextBox Name="folC" Watermark="No. Folio..." Text="{Binding Folc}"/>
+							<TextBox Name="contC" Watermark="No. Control..." Text="{Binding Controlc}"/>
+							<TextBox Name="nomC" Watermark="Nombre..." Text="{Binding Namec}"/>
+							<TextBox Name="apC" Watermark="Apellido Paterno..." Text="{Binding Last1}"/>
+							<TextBox Name="amC" Watermark="Apellido Materno..." Text="{Binding Last2}"/>
+							<TextBox Name="carrC" Watermark="Carrera..." Text="{Binding Careerc}"/>
+							<TextBox Name="fecrC" Watermark="Fecha de registro..." Text="{Binding Datec}"/>
+							<TextBox Name="obsC" Watermark="Observaciones..." Text="{Binding Obsc}"/>
 						</StackPanel>
 					</ScrollViewer>
 				</TabItem>
 				<TabItem Header="Titulo" VerticalContentAlignment="Center">
 					<ScrollViewer>
 						<StackPanel HorizontalAlignment="Stretch" Margin="0 0 20 0" Spacing="10">
-							<TextBox Name="regT" Watermark="No. Registro..."/>
-							<TextBox Name="titlT" Watermark="No. Titulo de licenciatura..."/>
-							<TextBox Name="contT" Watermark="No. Control..."/>
-							<TextBox Name="planT" Watermark="Clave Plan de estudios..."/>
-							<TextBox Name="fecaT" Watermark="Fecha del acto..."/>
-							<TextBox Name="fecrT" Watermark="Fecha de registro..."/>
-							<TextBox Name="cedT" Watermark="No. Cedula..."/>
-							<TextBox Name="obsT" Watermark="Observaciones"/>
+							<TextBox Watermark="No. Registro..." Text="{Binding Registert}"/>
+							<TextBox Watermark="No. Titulo de licenciatura..." Text="{Binding Titlet}"/>
+							<TextBox Watermark="No. Control..." Text="{Binding Controlt}"/>
+							<TextBox Watermark="Clave Plan de estudios..." Text="{Binding Plan}"/>
+							<TextBox Watermark="Fecha del acto..." Text="{Binding DatetA}"/>
+							<TextBox Watermark="Fecha de registro..." Text="{Binding DatetR}"/>
+							<TextBox Watermark="No. Cedula..." Text="{Binding Cedt}"/>
+							<TextBox Watermark="Observaciones" Text="{Binding Obst}"/>
 						</StackPanel>
 					</ScrollViewer>
 				</TabItem>
 			</TabControl>
 		<WrapPanel Margin="10">
-			<Button Content="Agregar" Command="{Binding AddDataCommand}"/>
+			<Button Content="Agregar" Command="{Binding AddDataCommand}" CommandParameter="{Binding #tabcontrol.SelectedIndex}"/>
 			<Button Content="Importar Excel"/>
-			<Button Content="Cancelar"/>
 		</WrapPanel>
 	</WrapPanel>
 </UserControl>
