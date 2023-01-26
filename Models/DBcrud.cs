@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Avalonia.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,9 @@ using System.Threading.Tasks;
 namespace ProtoApp.Models
 {
     public class DBcrud
+
     {
+        
         public static void AddCertificado(int reg, int folio, string control, string nombre = "", string apat = "", 
               string amat="", string carrera="", DateTime fecha = new DateTime(), string obs="") 
         {
@@ -27,6 +30,37 @@ namespace ProtoApp.Models
                 context.SaveChanges();
             }
         }
+        public Certificado SearchCertificado(int id)
+        {
+            using (var context = new TitulosCertificadosContext())
+            {
+                return context.Certificados.Where(b => b.IdCertificado == id).FirstOrDefault();
+            }
+        }
+
+        public Titulo SearchTitulo(int id)
+        {
+            using (var context = new TitulosCertificadosContext())
+            {
+                return context.Titulos.Where(b => b.IdTitulo == id).FirstOrDefault();
+            }
+        }
+
+        public List<Certificado> DisplayCertificados()
+        {
+            using (var context = new TitulosCertificadosContext())
+            {
+                return context.Certificados.ToList();
+            }
+        }
+        public List<Titulo> DisplayTitulos()
+        {
+            using (var context = new TitulosCertificadosContext())
+            {
+                return context.Titulos.ToList();
+            }
+        }
+
         public static void DeleteCertificado(int id)
         {
             using (var context = new TitulosCertificadosContext())

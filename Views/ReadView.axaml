@@ -76,19 +76,39 @@
 				<Label Content="Carrera" FontSize="20"/>
 				<ComboBox HorizontalContentAlignment="Left">
 					<ComboBoxItem>
-						<Label Content="Ing. Gestion empresarial"/>
+						<Label Content="Lic. Administración"/>
+					</ComboBoxItem>
+					<ComboBoxItem>
+						<Label Content="Ing. Electromecánica"/>
+					</ComboBoxItem>
+					<ComboBoxItem>
+						<Label Content="Ing. Electrónica"/>
+					</ComboBoxItem>
+					<ComboBoxItem>
+						<Label Content="Ing. Gestion Empresarial"/>
+					</ComboBoxItem>
+					<ComboBoxItem>
+						<Label Content="Ing. Gestion Empresarial (ED)"/>
+					</ComboBoxItem>
+					<ComboBoxItem>
+						<Label Content="Ing. Industrial"/>
+					</ComboBoxItem>
+					<ComboBoxItem>
+						<Label Content="Ing. Industrial (ED)"/>
+					</ComboBoxItem>
+					<ComboBoxItem>
+						<Label Content="Ing. Innovación Agrícola Sustentable"/>
+					</ComboBoxItem>
+					<ComboBoxItem>
+						<Label Content="Ing. Mecatrónica"/>
+					</ComboBoxItem>
+					<ComboBoxItem>
+						<Label Content="Ing. Sistemas Computacionales"/>
 					</ComboBoxItem>
 				</ComboBox>
 			</StackPanel>
 			<StackPanel Spacing="5" Margin="20 0 0 0">
-				<Label Content="Sexo" FontSize="20"/>
-				<WrapPanel>
-					<ToggleButton Content="H"/>
-					<ToggleButton Content="M"/>
-				</WrapPanel>
-			</StackPanel>
-			<StackPanel Spacing="5" Margin="20 0 0 0">
-				<Label Content="Certificado" FontSize="20"/>
+				<Label Content="Titulo" FontSize="20"/>
 				<ToggleSwitch OnContent="Si" OffContent="No"/>
 			</StackPanel>
 			<StackPanel Spacing="5" Margin="20 0 0 0">
@@ -108,6 +128,7 @@
 		</WrapPanel>
 		<ScrollViewer>
 			<Grid>
+				
 			</Grid>
 		</ScrollViewer>
 		<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
