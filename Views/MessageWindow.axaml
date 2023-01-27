@@ -1,0 +1,22 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="550" d:DesignHeight="180"
+        x:Class="ProtoApp.Views.MessageWindow"
+		Width="550"
+		Height="180"
+        Title="{Binding Title}"
+		Icon="/Assets/appIcon.ico"
+		Background="{Binding WindowColor}"
+		
+		ExtendClientAreaToDecorationsHint="True"
+		>
+	<StackPanel HorizontalAlignment="Center" Margin="40">
+		<TextBlock TextWrapping="WrapWithOverflow" 
+			   FontFamily="Segoe UI"
+			   FontSize="20"
+				Text="{Binding Content}"/> 
+		<Button Content="Aceptar" Margin="10" Command="{Binding AcceptButtonCommand}"/>
+	</StackPanel>
+</Window>

@@ -56,7 +56,7 @@
 						<Image Source="/Assets/searchIconD.png" Width="19"/>
 					</Button>
 					<Button Background="Transparent" CornerRadius="0">
-						<Image Source="/Assets/RestartIconD.png" Width="19"/>
+						<Image Source="/Assets/RestartIcon.png" Width="19"/>
 					</Button>
 				</WrapPanel>
 		</StackPanel>
