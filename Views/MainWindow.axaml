@@ -22,7 +22,6 @@
 
 	<Window.Styles>
 		<Style Selector = "Button">
-			<Setter Property = "Foreground" Value = "#FFFFFFFF" />
 			<Setter Property="FontFamily" Value="Segoe UI" />
 			<Setter Property="FontWeight" Value="Thin" />
 			<Setter Property="FontSize" Value="18" />
@@ -31,7 +30,7 @@
 			<Setter Property="HorizontalContentAlignment" Value="Center" />
 		</Style>
 		<Style Selector= "TextBox">
-			<Setter Property = "Foreground" Value = "#FFFFFFFF" />
+
 			<Setter Property="FontFamily" Value="Segoe UI" />
 			<Setter Property="FontWeight" Value="Thin" />
 			<Setter Property="FontSize" Value="18" />
@@ -43,7 +42,7 @@
 			<ExperimentalAcrylicBorder.Material>
 				<ExperimentalAcrylicMaterial
 					BackgroundSource="Digger"
-					TintColor="Black"
+					TintColor="White"
 					TintOpacity="1"
 					MaterialOpacity="0.65" />
 			</ExperimentalAcrylicBorder.Material>

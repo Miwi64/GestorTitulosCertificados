@@ -18,14 +18,14 @@
 			<ExperimentalAcrylicBorder.Material>
 				<ExperimentalAcrylicMaterial
 					BackgroundSource="Digger"
-					TintColor="Black"
+					TintColor="White"
 					TintOpacity="1"
 					MaterialOpacity="0.75" />
 			</ExperimentalAcrylicBorder.Material>
 		</ExperimentalAcrylicBorder>
 		<StackPanel>
 			<Button Width="40" Height="30" CornerRadius="0" Background="Transparent" Command="{Binding BackButtonCommand}" IsVisible="{Binding VisibleBack}">
-				<Image Source="/Assets/backIconD.png" Width="40"/>
+				<Image Source="/Assets/backIcon.png" Width="40"/>
 			</Button>
 			<Panel Margin="40 20 40 40">
 				<ContentControl Content="{Binding CurrentView}"/>

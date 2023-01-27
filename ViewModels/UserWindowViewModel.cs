@@ -50,7 +50,7 @@ namespace ProtoApp.ViewModels
         public void OpenAdd()
         {
             VisibleBack = true;
-            CurrentView = new AddViewModel();
+            CurrentView = new AddViewModel(new WindowService());
         }
         public ReactiveCommand<Unit, Unit> OpenReadCommand { get; }
         public void OpenRead()
