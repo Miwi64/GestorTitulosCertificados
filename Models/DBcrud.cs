@@ -44,7 +44,7 @@ namespace ProtoApp.Models
             }
         }
 
-        public List<Certificado> DisplayCertificados()
+        public static List<Certificado> DisplayCertificados()
         {
             using (var context = new TitulosCertificadosContext())
             {

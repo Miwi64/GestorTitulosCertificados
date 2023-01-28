@@ -2,8 +2,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:vm="clr-namespace:ProtoApp.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="ProtoApp.Views.ReadView">
+             x:Class="ProtoApp.Views.ReadView"
+			 >
 	<UserControl.Styles>
 		<Style Selector="Label">
 			<Setter Property="FontFamily" Value="Segoe UI"/>
@@ -26,6 +28,9 @@
 			<Setter Property="BorderBrush" Value="DarkGray"/>
 		</Style>
 	</UserControl.Styles>
+	<UserControl.DataContext>
+		<vm:ReadViewModel/>
+	</UserControl.DataContext>
 	
 	<StackPanel Spacing="10">
 		<StackPanel Orientation="Horizontal" Spacing="200">
@@ -126,11 +131,19 @@
 				</WrapPanel>
 			</StackPanel>
 		</WrapPanel>
-		<ScrollViewer>
-			<Grid>
-				
-			</Grid>
-		</ScrollViewer>
+		<DataGrid Items="{Binding Certificados}">
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="Registro" Binding="{Binding RegistroCertificado}"/>
+				<DataGridTextColumn Header="Folio" Binding="{Binding Folio}"/>
+				<DataGridTextColumn Header="NoControl" Binding="{Binding NumeroControl}"/>
+				<DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
+				<DataGridTextColumn Header="ApPat" Binding="{Binding ApellidoPaterno}"/>
+				<DataGridTextColumn Header="ApMat" Binding="{Binding ApellidoMaterno}"/>
+				<DataGridTextColumn Header="Carrera" Binding="{Binding Carrera}"/>
+				<DataGridTextColumn Header="Fecha Reg" Binding="{Binding FechaRegCert}"/>
+				<DataGridTextColumn Header="Observaciones" Binding="{Binding Observaciones}"/>
+			</DataGrid.Columns>
+		</DataGrid>
 		<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
 			<Button Content="Exportar a Excel"/>
 			<Button Content="Exportar a PDF"/>

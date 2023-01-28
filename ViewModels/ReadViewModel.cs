@@ -3,18 +3,37 @@ using ProtoApp.Models;
 using ReactiveUI;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Drawing.Text;
 using System.Linq;
 using System.Reactive;
 using System.Text;
 using System.Threading.Tasks;
+using System.Reactive.Concurrency;
 
 namespace ProtoApp.ViewModels
 {
-    internal class ReadViewModel : ViewModelBase
+
+    public class ReadViewModel : ViewModelBase
     {
-        public ReadViewModel()
+        ReadViewModel() 
         {
-            
+            LoadCertificados();
         }
+        private ObservableCollection<Certificado> _certificados;
+        public ObservableCollection<Certificado> Certificados
+        {
+            get => _certificados;
+            set => this.RaiseAndSetIfChanged(ref _certificados, value);
+        }
+
+        public void LoadCertificados()
+        {
+            using (var context = new TitulosCertificadosContext())
+            {
+                Certificados = new ObservableCollection<Certificado>(context.Certificados.ToList());
+            }
+        }
+
     }
 }
