@@ -13,13 +13,11 @@ using System.Reactive.Concurrency;
 
 namespace ProtoApp.ViewModels
 {
-
     public class ReadViewModel : ViewModelBase
     {
-        ReadViewModel() 
-        {
-            LoadCertificados();
-        }
+        public string SelectedFilter { get; set; }
+        public bool NoControl { get; set; }
+
         private ObservableCollection<Certificado> _certificados;
         public ObservableCollection<Certificado> Certificados
         {
@@ -27,12 +25,19 @@ namespace ProtoApp.ViewModels
             set => this.RaiseAndSetIfChanged(ref _certificados, value);
         }
 
-        public void LoadCertificados()
+        public ReadViewModel()
         {
             using (var context = new TitulosCertificadosContext())
             {
-                Certificados = new ObservableCollection<Certificado>(context.Certificados.ToList());
+                Certificados = new ObservableCollection<Certificado>(context.Certificados.ToList().OrderBy(s => s.RegistroCertificado));
             }
+        }
+
+        public void AplicarFiltros()
+        {
+            var CertFiltrados = Certificados.Where(c =>
+            (NoControl && c.NumeroControl.Contains(SelectedFilter)));
+            Certificados = new ObservableCollection<Certificado>(CertFiltrados);
         }
 
     }

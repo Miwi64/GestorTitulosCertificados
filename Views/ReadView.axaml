@@ -31,7 +31,7 @@
 	<UserControl.DataContext>
 		<vm:ReadViewModel/>
 	</UserControl.DataContext>
-	
+
 	<StackPanel Spacing="10">
 		<StackPanel Orientation="Horizontal" Spacing="200">
 			<Label Content="Consultar"
@@ -79,6 +79,7 @@
 			</StackPanel>
 			<StackPanel Spacing="5" Margin="20 0 0 0">
 				<Label Content="Carrera" FontSize="20"/>
+				<ScrollViewer>
 				<ComboBox HorizontalContentAlignment="Left">
 					<ComboBoxItem>
 						<Label Content="Lic. Administración"/>
@@ -111,6 +112,7 @@
 						<Label Content="Ing. Sistemas Computacionales"/>
 					</ComboBoxItem>
 				</ComboBox>
+					</ScrollViewer>
 			</StackPanel>
 			<StackPanel Spacing="5" Margin="20 0 0 0">
 				<Label Content="Titulo" FontSize="20"/>
@@ -131,19 +133,23 @@
 				</WrapPanel>
 			</StackPanel>
 		</WrapPanel>
-		<DataGrid Items="{Binding Certificados}">
-			<DataGrid.Columns>
-				<DataGridTextColumn Header="Registro" Binding="{Binding RegistroCertificado}"/>
-				<DataGridTextColumn Header="Folio" Binding="{Binding Folio}"/>
-				<DataGridTextColumn Header="NoControl" Binding="{Binding NumeroControl}"/>
-				<DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
-				<DataGridTextColumn Header="ApPat" Binding="{Binding ApellidoPaterno}"/>
-				<DataGridTextColumn Header="ApMat" Binding="{Binding ApellidoMaterno}"/>
-				<DataGridTextColumn Header="Carrera" Binding="{Binding Carrera}"/>
-				<DataGridTextColumn Header="Fecha Reg" Binding="{Binding FechaRegCert}"/>
-				<DataGridTextColumn Header="Observaciones" Binding="{Binding Observaciones}"/>
-			</DataGrid.Columns>
-		</DataGrid>
+		<Grid Height="800">
+			<ScrollViewer>
+			<DataGrid Items="{Binding Certificados}" AutoGenerateColumns="False" IsReadOnly="True" Height="600" VerticalAlignment="1">
+				<DataGrid.Columns>
+					<DataGridTextColumn Header="Registro" Binding="{Binding RegistroCertificado}"/>
+					<DataGridTextColumn Header="Folio" Binding="{Binding Folio}"/>
+					<DataGridTextColumn Header="NoControl" Binding="{Binding NumeroControl}"/>
+					<DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
+					<DataGridTextColumn Header="ApPat" Binding="{Binding ApellidoPaterno}"/>
+					<DataGridTextColumn Header="ApMat" Binding="{Binding ApellidoMaterno}"/>
+					<DataGridTextColumn Header="Carrera" Binding="{Binding Carrera}"/>
+					<DataGridTextColumn Header="Fecha Reg" Binding="{Binding FechaRegCert}"/>
+					<DataGridTextColumn Header="Observaciones" Binding="{Binding Observaciones}"/>
+				</DataGrid.Columns>
+			</DataGrid>
+			</ScrollViewer>
+		</Grid>
 		<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
 			<Button Content="Exportar a Excel"/>
 			<Button Content="Exportar a PDF"/>
