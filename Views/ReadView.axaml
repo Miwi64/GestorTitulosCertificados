@@ -57,11 +57,11 @@
 							<Label Content="Nombre"/>
 						</ComboBoxItem>
 					</ComboBox>
-					<TextBox Watermark="Buscar..." Width="200" CornerRadius="0"/>
-					<Button Background="DodgerBlue" CornerRadius="0">
+					<TextBox Watermark="Buscar..." Width="200" CornerRadius="0" Text="{Binding NoControl}"/>
+					<Button x:Name="BtnBusqueda" Background="DodgerBlue" CornerRadius="0" Command="{Binding AplicarFiltros}">
 						<Image Source="/Assets/searchIconD.png" Width="19"/>
 					</Button>
-					<Button Background="Transparent" CornerRadius="0">
+					<Button x:Name="BtnRecargar" Background="Transparent" CornerRadius="0" Command="{Binding loadCertificados}">
 						<Image Source="/Assets/RestartIcon.png" Width="19"/>
 					</Button>
 				</WrapPanel>
@@ -133,7 +133,6 @@
 				</WrapPanel>
 			</StackPanel>
 		</WrapPanel>
-		<Grid Height="800">
 			<ScrollViewer>
 			<DataGrid Items="{Binding Certificados}" AutoGenerateColumns="False" IsReadOnly="True" Height="600" VerticalAlignment="1">
 				<DataGrid.Columns>
@@ -149,7 +148,6 @@
 				</DataGrid.Columns>
 			</DataGrid>
 			</ScrollViewer>
-		</Grid>
 		<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
 			<Button Content="Exportar a Excel"/>
 			<Button Content="Exportar a PDF"/>

@@ -16,7 +16,7 @@ namespace ProtoApp.ViewModels
     public class ReadViewModel : ViewModelBase
     {
         public string SelectedFilter { get; set; }
-        public bool NoControl { get; set; }
+        public String NoControl { get; set; }
 
         private ObservableCollection<Certificado> _certificados;
         public ObservableCollection<Certificado> Certificados
@@ -27,18 +27,23 @@ namespace ProtoApp.ViewModels
 
         public ReadViewModel()
         {
-            using (var context = new TitulosCertificadosContext())
-            {
-                Certificados = new ObservableCollection<Certificado>(context.Certificados.ToList().OrderBy(s => s.RegistroCertificado));
-            }
+            loadCertificados();
         }
 
         public void AplicarFiltros()
         {
+            loadCertificados();
             var CertFiltrados = Certificados.Where(c =>
-            (NoControl && c.NumeroControl.Contains(SelectedFilter)));
-            Certificados = new ObservableCollection<Certificado>(CertFiltrados);
+            (c.NumeroControl.Equals(NoControl)));
+            Certificados = new ObservableCollection<Certificado>(CertFiltrados.ToList().OrderBy(s => s.RegistroCertificado));
         }
 
+        public ObservableCollection<Certificado> loadCertificados()
+        {
+            using (var context = new TitulosCertificadosContext())
+            {
+                return Certificados = new ObservableCollection<Certificado>(context.Certificados.ToList().OrderBy(s => s.RegistroCertificado));
+            }
+        }
     }
 }
