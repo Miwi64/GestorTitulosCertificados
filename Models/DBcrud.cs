@@ -14,7 +14,7 @@ namespace ProtoApp.Models
         {
             using (var context = new TitulosCertificadosContext())
             {
-                var cert = new Certificado() { RegistroCertificado = reg, Folio = folio, NumeroControl = control, Carrera = carrera};
+                var cert = new Certificado() { RegistroCertificado = reg, Folio = folio, Nombre=nombre, ApellidoPaterno=apat, ApellidoMaterno=amat, FechaRegCert=fecha, Observaciones=obs, NumeroControl = control, Carrera = carrera};
                 context.Certificados.Add(cert);
                 context.SaveChanges();
             }
@@ -23,7 +23,7 @@ namespace ProtoApp.Models
         {
             using (var context = new TitulosCertificadosContext())
             {
-                var titl = new Titulo() { Registro=reg, TituloLicenciatura=titulo, NumeroControl=control, ClavePlanEstudios = clave};
+                var titl = new Titulo() { Registro=reg, TituloLicenciatura=titulo, Cedula=ced, FechaActo=fa, FechaRegistro=fr, Observaciones= obs, NumeroControl=control, ClavePlanEstudios = clave};
                 context.Titulos.Add(titl);
                 context.SaveChanges();
             }
