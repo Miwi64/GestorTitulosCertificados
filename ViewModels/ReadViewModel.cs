@@ -10,13 +10,14 @@ using System.Reactive;
 using System.Text;
 using System.Threading.Tasks;
 using System.Reactive.Concurrency;
+using Avalonia.Controls;
 
 namespace ProtoApp.ViewModels
 {
     public class ReadViewModel : ViewModelBase
     {
         public string SelectedFilter { get; set; }
-        public String NoControl { get; set; }
+        public String Busqueda { get; set; }
 
         private ObservableCollection<Certificado> _certificados;
         public ObservableCollection<Certificado> Certificados
@@ -34,7 +35,7 @@ namespace ProtoApp.ViewModels
         {
             loadCertificados();
             var CertFiltrados = Certificados.Where(c =>
-            (c.NumeroControl.Equals(NoControl)));
+            (c.NumeroControl.Equals(Busqueda)));
             Certificados = new ObservableCollection<Certificado>(CertFiltrados.ToList().OrderBy(s => s.RegistroCertificado));
         }
 

@@ -57,7 +57,7 @@
 							<Label Content="Nombre"/>
 						</ComboBoxItem>
 					</ComboBox>
-					<TextBox Watermark="Buscar..." Width="200" CornerRadius="0" Text="{Binding NoControl}"/>
+					<TextBox Watermark="Buscar..." Width="200" CornerRadius="0" Text="{Binding Busqueda}"/>
 					<Button x:Name="BtnBusqueda" Background="DodgerBlue" CornerRadius="0" Command="{Binding AplicarFiltros}">
 						<Image Source="/Assets/searchIconD.png" Width="19"/>
 					</Button>
