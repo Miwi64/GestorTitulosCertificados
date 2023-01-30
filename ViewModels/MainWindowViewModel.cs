@@ -16,13 +16,13 @@ namespace ProtoApp.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
-        public event EventHandler OnRequestClose;
+        public event EventHandler? OnRequestClose;
         public MainWindowViewModel() {
             OpenPanelCommand = ReactiveCommand.Create(OpenPanel);
         }
         public ReactiveCommand<Unit, Unit> OpenPanelCommand { get; }
         public void OpenPanel() {
-            OnRequestClose(this, new EventArgs());
+            OnRequestClose?.Invoke(this, new EventArgs());
         }
     }
 }

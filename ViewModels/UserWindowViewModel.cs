@@ -12,10 +12,6 @@ namespace ProtoApp.ViewModels
 {
     public class UserWindowViewModel : ViewModelBase
     {
-        private ViewModelBase _currentView;
-        private bool _visibleBack;
-        private readonly IWindowService _windowservice;
-
         public UserWindowViewModel(IWindowService windowservice)
         {
             _windowservice = windowservice;
@@ -74,5 +70,9 @@ namespace ProtoApp.ViewModels
             get => _visibleBack;
             set => this.RaiseAndSetIfChanged(ref _visibleBack, value);
         }
+
+        private ViewModelBase _currentView;
+        private bool _visibleBack;
+        private readonly IWindowService _windowservice;
     }
 }
