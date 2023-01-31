@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ProtoApp.Models;
 
@@ -24,4 +25,5 @@ public partial class Certificado
     public DateTime? FechaRegCert { get; set; }
 
     public string? Observaciones { get; set; }
+
 }
