@@ -49,7 +49,9 @@ namespace ProtoApp.ViewModels
         public string Registerc
         {
             get => _registerc;
-            set {this.RaiseAndSetIfChanged(ref _registerc, value);
+            set
+            {
+                this.RaiseAndSetIfChanged(ref _registerc, value);
                 IsButtonEnabled = RegValidation;
             }
         }
@@ -119,15 +121,15 @@ namespace ProtoApp.ViewModels
                 IsButtonEnabled = RegValidation;
             }
         }
-        string _registerc;
-        string _controlc;
-        string _folc;
-        string _namec;
-        string _last1;
-        string _last2;
-        string _careerc;
-        string _datec;
-        string _obsc;
+        string _registerc = "";
+        string _controlc = "";
+        string _folc = "";
+        string _namec = "";
+        string _last1 = "";
+        string _last2 = "";
+        string _careerc = "";
+        string _datec = "";
+        string _obsc = "";
 
         [Required(ErrorMessage = "Campo Obligatorio"),
             Range(0, int.MaxValue, ErrorMessage = "Introducir solo numeros")]
@@ -237,16 +239,16 @@ namespace ProtoApp.ViewModels
                             int.TryParse(Registert, out int _) &&
                             int.TryParse(Cedt, out int _);
         }
-        bool _isButtonEnabled;
-        string _registert;
-        string _controlt;
-        string _titlet;
-        string _plan;
-        string _dateta;
-        string _datetr;
-        string _cedt;
-        string _obst;
-        int _index;
+        private bool _isButtonEnabled;
+        private string _registert = "";
+        private string _controlt = "";
+        private string _titlet = "";
+        private string _plan = "";
+        private string _dateta = "" ;
+        private string _datetr = "";
+        private string _cedt = "";
+        private string _obst = "";
+        private int _index = 0;
         private readonly IWindowService _windowService;
     }
 }

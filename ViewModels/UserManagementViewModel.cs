@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProtoApp.ViewModels
 {
-    internal class UserManagementViewModel : ViewModelBase
+    public class UserManagementViewModel : ViewModelBase
     {
     }
 }

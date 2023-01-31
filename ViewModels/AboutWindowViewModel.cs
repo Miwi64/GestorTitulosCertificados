@@ -10,7 +10,6 @@ namespace ProtoApp.ViewModels
 {
     public class AboutWindowViewModel : ViewModelBase
     {
-        public event EventHandler OnRequestClose;
         public AboutWindowViewModel()
         {
             CloseWindowCommand = ReactiveCommand.Create(CloseWindow);
@@ -18,7 +17,8 @@ namespace ProtoApp.ViewModels
         public ReactiveCommand<Unit, Unit> CloseWindowCommand { get; }
         public void CloseWindow()
         {
-            OnRequestClose(this, new EventArgs());
+            OnRequestClose?.Invoke(this, new EventArgs());
         }
+        public event EventHandler? OnRequestClose;
     }
 }
