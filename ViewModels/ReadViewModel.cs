@@ -1,8 +1,6 @@
-﻿using Microsoft.Win32;
-using ProtoApp.Models;
+﻿using ProtoApp.Models;
 using ReactiveUI;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Drawing.Text;
 using System.Linq;
@@ -18,12 +16,24 @@ namespace ProtoApp.ViewModels
     {
         private int _selectedSort;
         private string _busqueda;
+        private bool _ascdesc;
 
         public int SelectedFilter { get; set; }
         public int SelectedSort { 
             get => _selectedSort; 
             set {
                 this.RaiseAndSetIfChanged(ref _selectedSort, value);
+                loadData();
+                AplicarFiltros();
+                UpdateSort();
+            }
+        }
+        public bool Ascdesc
+        {
+            get => _ascdesc;
+            set
+            {
+                this.RaiseAndSetIfChanged(ref _ascdesc, value);
                 loadData();
                 AplicarFiltros();
                 UpdateSort();
@@ -50,9 +60,10 @@ namespace ProtoApp.ViewModels
 
         public ReadViewModel()
         {
-            Busqueda = "";
-            SelectedSort = 0;
+            _ascdesc = false;
+            _selectedSort = 0;
             SelectedFilter = 0;
+            Busqueda = "";
         }
 
         public async void AplicarFiltros()
@@ -84,7 +95,21 @@ namespace ProtoApp.ViewModels
 
         public ObservableCollection<Certificado> UpdateSort()
         {
-                switch (SelectedSort) {
+            if (Ascdesc)
+            {
+                switch (SelectedSort)
+                {
+                    case 0:
+                        return Certificados = new ObservableCollection<Certificado>(Certificados.OrderByDescending(s => s.NumeroControl));
+                    case 1:
+                        return Certificados = new ObservableCollection<Certificado>(Certificados.OrderByDescending(s => s.RegistroCertificado));
+                    default:
+                        return Certificados = new ObservableCollection<Certificado>(Certificados);
+                }
+            }
+            else {
+                switch (SelectedSort)
+                {
                     case 0:
                         return Certificados = new ObservableCollection<Certificado>(Certificados.OrderBy(s => s.NumeroControl));
                     case 1:
@@ -92,6 +117,7 @@ namespace ProtoApp.ViewModels
                     default:
                         return Certificados = new ObservableCollection<Certificado>(Certificados);
                 }
+            }
         }
 
         public void loadData() {

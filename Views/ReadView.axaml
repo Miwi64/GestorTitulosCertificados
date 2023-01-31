@@ -126,7 +126,7 @@
 							<Label Content="No. Registro"/>
 						</ComboBoxItem>
 					</ComboBox>
-					<ToggleButton Content="Desc."/>
+					<ToggleButton Content="Desc." IsChecked="{Binding Ascdesc}"/>
 				</WrapPanel>
 			</StackPanel>
 		</WrapPanel>
