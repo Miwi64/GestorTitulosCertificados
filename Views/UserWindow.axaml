@@ -18,7 +18,7 @@
 			<ExperimentalAcrylicBorder.Material>
 				<ExperimentalAcrylicMaterial
 					BackgroundSource="Digger"
-					TintColor="White"
+					TintColor="Black"
 					TintOpacity="1"
 					MaterialOpacity="0.75" />
 			</ExperimentalAcrylicBorder.Material>

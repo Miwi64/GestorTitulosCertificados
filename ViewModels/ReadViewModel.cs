@@ -16,8 +16,30 @@ namespace ProtoApp.ViewModels
 {
     public class ReadViewModel : ViewModelBase
     {
-        public string SelectedFilter { get; set; }
-        public String Busqueda { get; set; }
+        private int _selectedSort;
+        private string _busqueda;
+
+        public int SelectedFilter { get; set; }
+        public int SelectedSort { 
+            get => _selectedSort; 
+            set {
+                this.RaiseAndSetIfChanged(ref _selectedSort, value);
+                loadData();
+                AplicarFiltros();
+                UpdateSort();
+            }
+        }
+
+        public string Busqueda { 
+            get => _busqueda;
+            set
+            {
+                this.RaiseAndSetIfChanged(ref _busqueda, value);
+                loadData();
+                AplicarFiltros();
+                UpdateSort();
+            } 
+        }
 
         private ObservableCollection<Certificado> _certificados;
         public ObservableCollection<Certificado> Certificados
@@ -28,23 +50,58 @@ namespace ProtoApp.ViewModels
 
         public ReadViewModel()
         {
-            loadCertificados();
+            Busqueda = "";
+            SelectedSort = 0;
+            SelectedFilter = 0;
         }
 
-        public void AplicarFiltros()
+        public async void AplicarFiltros()
         {
-            loadCertificados();
-            var CertFiltrados = Certificados.Where(c =>
-            (c.NumeroControl.Equals(Busqueda)));
-            Certificados = new ObservableCollection<Certificado>(CertFiltrados.ToList().OrderBy(s => s.RegistroCertificado));
+            //predicate<Person> oscarFinder = (Person p) => { return p.Name == "Oscar"; };
+            Predicate<Certificado> filtro;
+            var CertFiltrados = Certificados.Where(GetPredicate(SelectedFilter));
+            Certificados = new ObservableCollection<Certificado> (CertFiltrados);
         }
 
-        public ObservableCollection<Certificado> loadCertificados()
-        {
-            using (var context = new TitulosCertificadosContext())
-            {
-                return Certificados = new ObservableCollection<Certificado>(context.Certificados.ToList().OrderBy(s => s.RegistroCertificado));
+        private Func<Certificado, bool> GetPredicate(int option) {
+            switch (option) {
+                case 0:
+                    return c => c.NumeroControl.ToUpper().Contains(Busqueda.ToUpper()); ;
+                case 1:
+                    return c => c.RegistroCertificado.ToString().Contains(Busqueda);
+                case 2:
+                    return c => c.Folio.ToString().Contains(Busqueda);
+                case 3:
+                    return c => c.ApellidoPaterno.ToUpper().Contains(Busqueda.ToUpper());
+                case 4:
+                    return c => c.ApellidoMaterno.ToUpper().Contains(Busqueda.ToUpper());
+                case 5:
+                    return c => c.Nombre.ToUpper().Contains(Busqueda.ToUpper());
+                default:
+                    return c => true;
             }
         }
+
+        public ObservableCollection<Certificado> UpdateSort()
+        {
+                switch (SelectedSort) {
+                    case 0:
+                        return Certificados = new ObservableCollection<Certificado>(Certificados.OrderBy(s => s.NumeroControl));
+                    case 1:
+                        return Certificados = new ObservableCollection<Certificado>(Certificados.OrderBy(s => s.RegistroCertificado));
+                    default:
+                        return Certificados = new ObservableCollection<Certificado>(Certificados);
+                }
+        }
+
+        public void loadData() {
+            using (var context = new TitulosCertificadosContext())
+            {
+                Certificados = new ObservableCollection<Certificado>(context.Certificados);
+            }
+        }
+
+        
+        
     }
 }

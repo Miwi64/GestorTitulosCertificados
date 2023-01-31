@@ -40,12 +40,15 @@
 			   />
 			<StackPanel Margin="10">
 				<WrapPanel>
-					<ComboBox Width="110" Height="32" HorizontalContentAlignment="Left">
+					<ComboBox Width="110" Height="32" HorizontalContentAlignment="Left" SelectedIndex="{Binding SelectedFilter}">
 						<ComboBoxItem>
 							<Label Content="No. Control"/>
 						</ComboBoxItem>
 						<ComboBoxItem>
 							<Label Content="No. Registro"/>
+						</ComboBoxItem>
+						<ComboBoxItem>
+							<Label Content="No. Folio"/>
 						</ComboBoxItem>
 						<ComboBoxItem>
 							<Label Content="Apellido Paterno"/>
@@ -57,13 +60,7 @@
 							<Label Content="Nombre"/>
 						</ComboBoxItem>
 					</ComboBox>
-					<TextBox Watermark="Buscar..." Width="200" CornerRadius="0" Text="{Binding Busqueda}"/>
-					<Button x:Name="BtnBusqueda" Background="DodgerBlue" CornerRadius="0" Command="{Binding AplicarFiltros}">
-						<Image Source="/Assets/searchIconD.png" Width="19"/>
-					</Button>
-					<Button x:Name="BtnRecargar" Background="Transparent" CornerRadius="0" Command="{Binding loadCertificados}">
-						<Image Source="/Assets/RestartIcon.png" Width="19"/>
-					</Button>
+					<TextBox Watermark="Buscar..." Width="275" CornerRadius="0" Text="{Binding Busqueda}"/>
 				</WrapPanel>
 				<ProgressBar IsIndeterminate="True"/>
 			</StackPanel>
@@ -121,7 +118,7 @@
 			<StackPanel Spacing="5" Margin="20 0 0 0">
 				<Label Content="Ordenar por" FontSize="20"/>
 				<WrapPanel>
-					<ComboBox MaxWidth="120" HorizontalContentAlignment="Left">
+					<ComboBox MaxWidth="120" HorizontalContentAlignment="Left" SelectedIndex="{Binding SelectedSort}">
 						<ComboBoxItem>
 							<Label Content="No. Control"/>
 						</ComboBoxItem>
@@ -134,7 +131,7 @@
 			</StackPanel>
 		</WrapPanel>
 			<ScrollViewer>
-			<DataGrid Items="{Binding Certificados}" AutoGenerateColumns="False" IsReadOnly="True" Height="600" VerticalAlignment="1">
+			<DataGrid Items="{Binding Certificados}" AutoGenerateColumns="False" IsReadOnly="True" Height="200" VerticalAlignment="1">
 				<DataGrid.Columns>
 					<DataGridTextColumn Header="Registro" Binding="{Binding RegistroCertificado}"/>
 					<DataGridTextColumn Header="Folio" Binding="{Binding Folio}"/>
